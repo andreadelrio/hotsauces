@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import Router from './components/Router';
 import Header from './components/Header';
 import API from "./api";
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  max-width: 1100px;
+  margin: 0 auto;
+`;
 
 class App extends Component {
 
@@ -10,6 +16,18 @@ class App extends Component {
     this.state = {
       sauces: []
     };
+    this.removeHotSauce = this.removeHotSauce.bind(this);
+  }
+
+  removeHotSauce(id) {
+    const updatedSauces = Array.from(this.state.sauces);
+    const sauceIndex = updatedSauces.findIndex((hotsauce) => hotsauce.id === id);
+
+    if (sauceIndex > -1) {
+     updatedSauces.splice(sauceIndex, 1);
+    }
+
+    this.setState({ sauces: updatedSauces });
   }
 
   componentDidMount() {
@@ -23,10 +41,10 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <Wrapper>
         <Header />
-        <Router {...this.state} />
-      </div>
+        <Router {...this.state} removeHotSauce={this.removeHotSauce} />
+      </Wrapper>
     );
   }
 }

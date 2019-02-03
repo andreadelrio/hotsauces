@@ -1,6 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -.5rem;
+  margin-left: -.5rem;
+`;
 
 const SaucePage = (props) => {
   const sauceId = parseInt(props.match.params.sauceId);
@@ -12,11 +20,13 @@ const SaucePage = (props) => {
 
   if (sauceIndex > -1) {
     return (
-      <main>
-        <p>{sauce.title}</p>
-        <p>{sauce.subtitle}</p>
-        <p>{sauce.description}</p>
-      </main>
+      <Container>
+        <main>
+          <p>{sauce.title}</p>
+          <p>{sauce.subtitle}</p>
+          <p>{sauce.description}</p>
+        </main>
+      </Container>
     );
   } else {
     return (

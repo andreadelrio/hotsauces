@@ -1,24 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Sauce from './Sauce';
+import styled from 'styled-components';
 
-const Home = (props) => (
-  <main>
-    <div>
-      {props.sauces.map((hotsauce) => (
-        <Sauce
-          key={hotsauce.id}
-          {...hotsauce}
-          removeHotSauce={props.removeHotSauce}
-        />
-      ))}
-    </div>
-  </main>
+const Grid = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -.5rem;
+  margin-left: -.5rem;
+`;
+
+const List = (props) => (
+  <Grid>
+    {props.sauces.map((sauce) => (
+      <Sauce
+        key={sauce.id}
+        {...sauce}
+        removeHotSauce={props.removeHotSauce}
+      />
+    ))}
+  </Grid>
 );
 
-Home.propTypes = {
-  hotsauces: PropTypes.array.isRequired,
-  removeHotSauce: PropTypes.func.isRequired
+List.propTypes = {
+  sauces: PropTypes.array.isRequired,
 };
 
-export default Home;
+export default List;
