@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import Router from './components/Router';
-import Header from './components/Header';
 import API from "./api";
 import styled from 'styled-components';
+import './App.css';
 
 const Wrapper = styled.div`
-  max-width: 1100px;
   margin: 0 auto;
 `;
 
@@ -42,7 +41,6 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
-        <Header />
         <Router {...this.state} removeHotSauce={this.removeHotSauce} />
       </Wrapper>
     );
