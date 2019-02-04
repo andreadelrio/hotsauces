@@ -1,3 +1,7 @@
+Project to practice React, react-router and styled-components. Displays a grid of hot sauces from a json. Each hot sauce has its own detailed page. See the result here:
+
+https://hotsauces.netlify.com/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
