@@ -20,7 +20,7 @@ class App extends Component {
 
   removeHotSauce(id) {
     const updatedSauces = Array.from(this.state.sauces);
-    const sauceIndex = updatedSauces.findIndex((hotsauce) => hotsauce.id === id);
+    const sauceIndex = updatedSauces.findIndex((sauce) => sauce.id === id);
 
     if (sauceIndex > -1) {
      updatedSauces.splice(sauceIndex, 1);
